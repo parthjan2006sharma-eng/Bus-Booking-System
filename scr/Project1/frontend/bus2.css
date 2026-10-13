@@ -1,0 +1,330 @@
+/* ===================== Base ===================== */
+:root {
+    --road: #12343b;
+    --road-dark: #0b2227;
+    --signal: #f2a900;
+    --signal-dark: #d99500;
+    --paper: #ffffff;
+    --bg: #eaf0f0;
+    --line: #cfdadb;
+    --text: #17282b;
+    --muted: #5b6f72;
+    --error: #b3261e;
+    --ok: #1f7a4d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 40px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ===================== Header ===================== */
+header {
+    background: var(--road);
+    color: #fff;
+    padding: 28px 16px 32px;
+    text-align: center;
+    border-bottom: 6px solid var(--signal);
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* ===================== Section cards ===================== */
+#finding,
+#buses,
+#seats-container,
+#passenger,
+.payment,
+#booking-success {
+    width: min(92%, 520px);
+    margin: 24px auto 0;
+    padding: 24px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(18, 52, 59, 0.08);
+}
+
+h2, h3 {
+    margin: 0 0 12px;
+    color: var(--road);
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+p {
+    margin: 0 0 8px;
+}
+
+/* ===================== Search form ===================== */
+#finding br {
+    display: none;
+}
+
+#finding label {
+    display: block;
+    margin: 0 0 4px;
+    font-weight: 600;
+}
+
+#finding select,
+#finding input {
+    margin-bottom: 16px;
+}
+
+select,
+input[type="date"],
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+input[type="file"] {
+    width: 100%;
+    margin-top: 4px;
+    font: inherit;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+select:focus,
+input:focus,
+button:focus-visible {
+    outline: 3px solid rgba(242, 169, 0, 0.55);
+    outline-offset: 1px;
+    border-color: var(--signal-dark);
+}
+
+/* ===================== Buttons ===================== */
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+#search,
+#pay,
+#payNow,
+#passenger > button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    font-weight: 700;
+    color: var(--road-dark);
+    background: var(--signal);
+    border: none;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+#search:hover,
+#pay:hover,
+#payNow:hover,
+#passenger > button:hover {
+    background: var(--signal-dark);
+}
+
+/* ===================== Available buses ===================== */
+#buses {
+    display: none;
+}
+
+#available-buses p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 10px;
+    padding: 12px 14px;
+    background: var(--bg);
+    border-left: 5px solid var(--road);
+    border-radius: 6px;
+}
+
+#available-buses button {
+    padding: 8px 16px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--road);
+    border: none;
+    border-radius: 6px;
+}
+
+#available-buses button:hover {
+    background: var(--road-dark);
+}
+
+/* ===================== Seat selection ===================== */
+#seats-container > p:first-child {
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--road);
+}
+
+.seat-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.seat-row span {
+    width: 36px; /* aisle */
+}
+
+.seats {
+    width: 48px;
+    height: 48px;
+    font-weight: 600;
+    color: var(--road);
+    background: #e3ecec;
+    border: 2px solid var(--line);
+    border-radius: 10px 10px 4px 4px;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.seats:hover {
+    border-color: var(--road);
+}
+
+.seats.selected {
+    color: var(--road-dark);
+    background: var(--signal);
+    border-color: var(--signal-dark);
+}
+
+.seat-count {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    font-weight: 600;
+}
+
+.seat-count p {
+    margin: 0;
+}
+
+#show {
+    min-height: 24px;
+    color: var(--error);
+    font-weight: 500;
+}
+
+/* ===================== Passenger forms ===================== */
+#passenger form {
+    margin-bottom: 16px;
+    padding: 16px;
+    background: var(--bg);
+    border-radius: 8px;
+}
+
+#passenger form input {
+    margin-bottom: 10px;
+}
+
+#passenger form input:last-of-type {
+    margin-bottom: 0;
+}
+
+/* ===================== Payment ===================== */
+.payment {
+    line-height: 1.7;
+}
+
+#bookingSummary {
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    background: var(--bg);
+    border-radius: 8px;
+}
+
+.payment br {
+    display: none;
+}
+
+.payment label {
+    display: inline-block;
+    min-width: 110px;
+    cursor: pointer;
+}
+
+.payment input[type="radio"] {
+    margin-right: 14px;
+    accent-color: var(--road);
+}
+
+.payment input[type="radio"] + label,
+.payment label + input[type="radio"] {
+    vertical-align: middle;
+}
+
+#method {
+    margin: 10px 0 0;
+    color: var(--error);
+    font-weight: 500;
+}
+
+/* ===================== Success ===================== */
+#booking-success {
+    border-top: 6px solid var(--ok);
+}
+
+#booking-success > h3:first-child {
+    color: var(--ok);
+    font-size: 1.3rem;
+}
+
+/* ===================== Small screens ===================== */
+@media (max-width: 420px) {
+    #finding,
+    #buses,
+    #seats-container,
+    #passenger,
+    .payment,
+    #booking-success {
+        padding: 18px;
+    }
+
+    .seats {
+        width: 42px;
+        height: 42px;
+    }
+
+    .seat-row {
+        gap: 8px;
+    }
+
+    .seat-row span {
+        width: 24px;
+    }
+}

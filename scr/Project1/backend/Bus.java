@@ -1,4 +1,4 @@
-package Project1;
+package Project1.backend;
 
 import java.sql.Connection;
 import java.util.Scanner;

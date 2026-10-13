@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bus.css">
+    <title>Bus Booking System</title>
+</head>
+<body>
+<header>
+ <h1>Welcome to Bus Booking System</h1>
+</header>
+<form id="finding">
+    <label>From:</label>
+    <select id="from">
+        <option value="">Select source</option>
+    </select>
+    <br><br>
+
+    <label>To:</label>
+    <select id="to">
+        <option value="">Select destination</option>
+    </select>
+    <br><br>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date">
+    <br><br><br>
+
+    <button type="button" id="search">Search Buses</button>
+    <br>
+</form>
+
+<div id="buses" style="display: none">
+    <h3>Available Buses</h3>
+    <div id="available-buses"></div>
+</div>
+
+<div id="seats-container" style="display: none;">
+    <p>Seat Selection</p>
+    <div class="seat-row">
+        <button class="seats">01</button>
+        <button class="seats">02</button>
+        <span></span>
+        <button class="seats">03</button>
+        <button class="seats">04</button>
+    </div>
+    <div class="seat-row">
+        <button class="seats">05</button>
+        <button class="seats">06</button>
+        <span></span>
+        <button class="seats">07</button>
+        <button class="seats">08</button>
+    </div>
+    <div class="seat-row">
+        <button class="seats">09</button>
+        <button class="seats">10</button>
+        <span></span>
+        <button class="seats">11</button>
+        <button class="seats">12</button>
+    </div>
+    <div class="seat-row">
+        <button class="seats">13</button>
+        <button class="seats">14</button>
+        <span></span>
+        <button class="seats">15</button>
+        <button class="seats">16</button>
+    </div>
+    <p >Selected Seats:</p><p id="SelectedSeats">0</p>
+    <p id="show"></p>
+    <button id="pay">Pay</button>
+</div>
+
+<div id="passenger" style="display: none;">
+    <h2>Passenger Details</h2>
+</div>
+<div class="payment" style="display:none;">
+    <h2>Payment</h2>
+    <div id="bookingSummary"></div>
+    <p>Choose a Method</p>
+
+    <label for="visa">Visa</label>
+    <input type="radio" id="visa" name="paymentMethod" value="Visa"><br>
+    <label for="UPI">UPI</label>
+    <input type="radio" id="UPI" name="paymentMethod" value="UPI"><br>
+    <label for="debit">Debit card</label>
+    <input type="radio" id="debit" name="paymentMethod" value="Debit Card"><br>
+    <label for="credit">Credit card</label>
+    <input type="radio" id="credit" name="paymentMethod" value="Credit Card"><br><br>
+    <button type="submit" id="payNow">Pay Now</button>
+
+    <p id="method"></p>
+</div>
+    <script src="bus.js"></script>
+
+</body>
+</html>
